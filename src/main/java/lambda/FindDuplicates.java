@@ -20,9 +20,10 @@ public class FindDuplicates {
                     .filter(p->p.getValue()>1)
                     .map(Map.Entry::getKey)
                     .collect(Collectors.toList());
+        System.out.println("listDuplicated "+listDuplicated);
 
 
-        Integer max=list.stream()
+        Integer maxRepeated=list.stream()
                 .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
                 .entrySet()
                 .stream()
@@ -30,15 +31,17 @@ public class FindDuplicates {
                 .max( Comparator.comparing( Map.Entry::getValue ))
                 .map(Map.Entry::getKey)
                 .get();
+        System.out.println("maxRepeated "+maxRepeated);
 
-        int sum=
+        int sumStreams=
         IntStream.range(0, list.size())
-                .filter(i -> 1 != i)
+                //.filter(i -> 1 != i)
                 .mapToObj(i -> list.get(i))
                 .collect(Collectors.toList())
                 .stream()
                 .mapToInt(p->p)
                 .sum();
+        System.out.println("sumStreams "+sumStreams);
 
 
         long sumSocks=list.stream()
@@ -52,7 +55,7 @@ public class FindDuplicates {
                 .mapToLong(p->p)
                 .sum();
 
-        System.out.println(sumSocks);
+        System.out.println("sumSocks "+sumSocks);
 
         List<Integer> listNoDuplicated=list.stream()
                 .collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
@@ -61,7 +64,7 @@ public class FindDuplicates {
                 .filter(p->p.getValue()==1)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
-        System.out.println(listNoDuplicated);
+        System.out.println("listNoDuplicated "+listNoDuplicated);
 
     }
 }

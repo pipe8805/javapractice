@@ -14,17 +14,22 @@ public class ClosestNumbers {
         Integer[] myArray = new Integer[arr.size()];
         arr.toArray(myArray);
         Arrays.sort(myArray);
+        List<Integer> result=new ArrayList<>();
         Integer diff = Integer.MAX_VALUE;
-        for (int i = 0; i < myArray.length; i++) {
+        for (int i = 0; i < myArray.length-1; i++) {
             if (myArray[i + 1] - myArray[i] <= diff)
                 diff = myArray[i + 1] - myArray[i];
         }
 
-        for (int i = 0; i < myArray.length; i++) {
+        for (int i = 0; i < myArray.length-1; i++) {
+            if (myArray[i + 1] - myArray[i] == diff){
+                result.add(myArray[i]);
+                result.add(myArray[i + 1]);
 
+            }
 
         }
-        return new ArrayList<>();
+        return result;
     }
 
     public static void main(String[] args) throws IOException {

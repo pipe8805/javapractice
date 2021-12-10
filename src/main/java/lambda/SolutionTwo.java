@@ -43,7 +43,7 @@ public class SolutionTwo {
     public static void main(String[] args) throws IOException {
 
         List<Integer> list= Arrays.asList(4, 6, 5, 3, 3, 1);
-pickingNumbers(list);
+System.out.println(pickingNumbers(list));
 
     }
 }
