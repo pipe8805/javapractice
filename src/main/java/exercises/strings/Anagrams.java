@@ -20,6 +20,7 @@ public class Anagrams {
         return sortedWord.equals(sortedAnagram);
     }
 
+
     public static String sortChars(String word) {
         char[] wordArr = word.toLowerCase().toCharArray();
         Arrays.sort(wordArr);
